@@ -1,0 +1,28 @@
+<form *ngIf="userForm" [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+  <div class="form-group">
+    <label for="username">Username:</label>
+    <input type="text" id="username" class="form-control form-control-sm" formControlName="username">
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" class="form-control form-control-sm" formControlName="email">
+    <small *ngIf="userForm.controls['email']?.invalid && formSubmitted" class="form-text error">
+      Please, enter your email!
+    </small>
+  </div>
+  <div class="form-group">
+    <label for="realm">Realm:</label>
+    <input type="text" id="realm" class="form-control form-control-sm" formControlName="realm">
+    <small *ngIf="userForm.controls['realm']?.invalid && formSubmitted" class="form-text error">
+      Please, enter your realm!
+    </small>
+  </div>
+  <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" class="form-control form-control-sm" formControlName="password">
+      <small *ngIf="userForm.controls['password']?.invalid && formSubmitted" class="form-text error">
+        Please, enter your password!
+      </small>
+    </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>

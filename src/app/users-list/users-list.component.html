@@ -1,0 +1,29 @@
+<table class="table table-hover table-responsive">
+  <caption>List of users</caption>
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Username</th>
+      <th scope="col">Details</th>
+      <th scope="col">Posts</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td scope="row">{{ user.id }}</td>
+      <td>{{ user.username }}</td>
+      <td>
+          <a [routerLink]="['/user', user.id]">Details</a>
+      </td>
+      <td>
+        <a [routerLink]="['/task', user.username]">Posts</a>
+      </td>
+      <td>
+        <button type="button" class="btn btn-primary" [routerLink]="['create', user.id]">Update</button>
+        <button type="button" class="btn btn-primary" (click)="deleteUser(user.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-primary" routerLink="create/">Create User</button>
